@@ -57,7 +57,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/youtube/convert?url=${encodeURIComponent(url.trim())}`
+        `${import.meta.env.VITE_API_BASE_URL}/api/youtube/convert?url=${encodeURIComponent(url.trim())}`
       );
 
       if (!response.ok) {
