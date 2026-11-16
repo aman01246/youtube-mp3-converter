@@ -40,11 +40,16 @@ public class YouTubeService {
 		}
 
 		ProcessBuilder processBuilder = new ProcessBuilder(
-				ytDlpPath, 
-				"--no-playlist", 
-				"-x", "--audio-format", "mp3",
-				"--audio-quality", "192K", "-o", 
-				outputDir.resolve("%(id)s.%(ext)s").toString(), url);
+        ytDlpPath,
+        "--no-playlist",
+        "--js-runtimes", "deno",
+        "--extractor-args", "youtube:player_client=default",
+        "-x",
+        "--audio-format", "mp3",
+        "--audio-quality", "192K",
+        "-o", outputDir.resolve("%(id)s.%(ext)s").toString(),
+        url
+);
 
 		processBuilder.redirectErrorStream(true);
 		processBuilder.redirectOutput(logFile.toFile());
