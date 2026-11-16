@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/youtube")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://mp3frontend.vercel.app")
 public class YouTubeController {
 
 	 private final YouTubeService youTubeService;
